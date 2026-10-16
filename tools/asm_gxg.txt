@@ -1,0 +1,276 @@
+==== qx$$gxg  RVA 0x11A2940  (len 0x440)
+011A2940  push    rdi                                                 
+011A2942  sub     rsp,50h                                             
+011A2946  cmp     byte ptr [1825D0C24h],0                             
+011A294D  mov     rdi,rcx                                             
+011A2950  jne     short 00000001811A2995h                             
+011A2952  lea     rcx,[1823F8260h]                                       ; byte[][]_TypeInfo
+011A2959  call    0000000180217380h                                   
+011A295E  lea     rcx,[1823FB9C0h]                                       ; GoPet.Core.MapData.MapAsset[]_TypeInfo
+011A2965  call    0000000180217380h                                   
+011A296A  lea     rcx,[182412150h]                                       ; qv_TypeInfo
+011A2971  call    0000000180217380h                                   
+011A2976  lea     rcx,[182412220h]                                       ; qx_TypeInfo
+011A297D  call    0000000180217380h                                   
+011A2982  lea     rcx,[1824125C8h]                                       ; ro_TypeInfo
+011A2989  call    0000000180217380h                                   
+011A298E  mov     byte ptr [1825D0C24h],1                             
+011A2995  mov     [rsp+68h],rbx                                       
+011A299A  test    rdi,rdi                                             
+011A299D  je      00000001811A2D0Fh                                   
+011A29A3  mov     [rsp+48h],rbp                                       
+011A29A8  mov     [rsp+20h],r15                                       
+011A29AD  mov     rcx,[182412220h]                                       ; qx_TypeInfo
+011A29B4  call    0000000180217830h                                   
+011A29B9  xor     edx,edx                                             
+011A29BB  mov     rcx,rax                                             
+011A29BE  mov     r15,rax                                             
+011A29C1  call    00000001811A2100h                                      ; qx$$.ctor
+011A29C6  mov     r9d,[rdi+18h]                                       
+011A29CA  xor     ebp,ebp                                             
+011A29CC  mov     [rsp+40h],rsi                                       
+011A29D1  mov     r8d,811C9DC5h                                       
+011A29D7  mov     [rsp+38h],r12                                       
+011A29DC  mov     edx,ebp                                             
+011A29DE  mov     [rsp+30h],r13                                       
+011A29E3  mov     eax,ebp                                             
+011A29E5  mov     [rsp+28h],r14                                       
+011A29EA  nop     [rax+rax]                                           
+011A29F0  cmp     eax,r9d                                             
+011A29F3  jge     short 00000001811A2A16h                             
+011A29F5  cmp     edx,r9d                                             
+011A29F8  jae     00000001811A2D73h                                   
+011A29FE  movsxd  rax,edx                                             
+011A2A01  movzx   ecx,byte ptr [rdi+rax+20h]                          
+011A2A06  xor     ecx,r8d                                             
+011A2A09  imul    r8d,ecx,1000193h                                    
+011A2A10  inc     edx                                                 
+011A2A12  mov     eax,edx                                             
+011A2A14  jmp     short 00000001811A29F0h                             
+011A2A16  test    r15,r15                                             
+011A2A19  je      00000001811A2D79h                                   
+011A2A1F  mov     [r15+5Ch],r8d                                       
+011A2A23  mov     rcx,[1824125C8h]                                       ; ro_TypeInfo
+011A2A2A  call    0000000180217830h                                   
+011A2A2F  xor     r8d,r8d                                             
+011A2A32  mov     rdx,rdi                                             
+011A2A35  mov     rcx,rax                                             
+011A2A38  mov     rbx,rax                                             
+011A2A3B  call    00000001811D88B0h                                      ; ro$$.ctor
+011A2A40  test    rbx,rbx                                             
+011A2A43  je      00000001811A2D79h                                   
+011A2A49  xor     edx,edx                                             
+011A2A4B  mov     rcx,rbx                                             
+011A2A4E  call    00000001811D97E0h                                      ; ro$$nre
+011A2A53  xor     edx,edx                                             
+011A2A55  movsx   edi,al                                              
+011A2A58  mov     rcx,rbx                                             
+011A2A5B  call    00000001811D97E0h                                      ; ro$$nre
+011A2A60  movsx   esi,al                                              
+011A2A63  mov     [r15+18h],edi                                       
+011A2A67  add     esi,edi                                             
+011A2A69  mov     rcx,[1823FB9C0h]                                       ; GoPet.Core.MapData.MapAsset[]_TypeInfo
+011A2A70  mov     edx,esi                                             
+011A2A72  call    0000000180216350h                                   
+011A2A77  mov     r14,rax                                             
+011A2A7A  mov     edi,ebp                                             
+011A2A7C  test    esi,esi                                             
+011A2A7E  jle     short 00000001811A2AC9h                             
+011A2A80  xor     edx,edx                                             
+011A2A82  mov     [rsp+60h],rbp                                       
+011A2A87  mov     rcx,rbx                                             
+011A2A8A  call    00000001811D92A0h                                      ; ro$$fjq
+011A2A8F  movsx   ecx,ax                                              
+011A2A92  xor     edx,edx                                             
+011A2A94  mov     [rsp+60h],ecx                                       
+011A2A98  mov     rcx,rbx                                             
+011A2A9B  call    00000001811D97E0h                                      ; ro$$nre
+011A2AA0  mov     [rsp+64h],al                                        
+011A2AA4  test    r14,r14                                             
+011A2AA7  je      00000001811A2D79h                                   
+011A2AAD  cmp     edi,[r14+18h]                                       
+011A2AB1  jae     00000001811A2D73h                                   
+011A2AB7  mov     rax,[rsp+60h]                                       
+011A2ABC  mov     ecx,edi                                             
+011A2ABE  inc     edi                                                 
+011A2AC0  mov     [r14+rcx*8+20h],rax                                 
+011A2AC5  cmp     edi,esi                                             
+011A2AC7  jl      short 00000001811A2A80h                             
+011A2AC9  lea     rcx,[r15+20h]                                       
+011A2ACD  mov     [r15+20h],r14                                       
+011A2AD1  mov     rdx,r14                                             
+011A2AD4  call    0000000180216230h                                   
+011A2AD9  xor     edx,edx                                             
+011A2ADB  mov     rcx,rbx                                             
+011A2ADE  call    00000001811D97E0h                                      ; ro$$nre
+011A2AE3  xor     edx,edx                                             
+011A2AE5  movsx   esi,al                                              
+011A2AE8  mov     rcx,rbx                                             
+011A2AEB  call    00000001811D97E0h                                      ; ro$$nre
+011A2AF0  xor     edx,edx                                             
+011A2AF2  movsx   edi,al                                              
+011A2AF5  mov     rcx,rbx                                             
+011A2AF8  call    00000001811D97E0h                                      ; ro$$nre
+011A2AFD  movsx   ebp,al                                              
+011A2B00  mov     ecx,edi                                             
+011A2B02  mov     eax,esi                                             
+011A2B04  mov     [rsp+70h],ecx                                       
+011A2B08  mov     [r15+10h],eax                                       
+011A2B0C  mov     r12d,edi                                            
+011A2B0F  mov     [r15+14h],ecx                                       
+011A2B13  mov     edx,ebp                                             
+011A2B15  mov     rcx,[1823F8260h]                                       ; byte[][]_TypeInfo
+011A2B1C  mov     [rsp+60h],eax                                       
+011A2B20  imul    r12d,esi                                            
+011A2B24  call    0000000180216350h                                   
+011A2B29  mov     rsi,rax                                             
+011A2B2C  test    bpl,bpl                                             
+011A2B2F  jle     short 00000001811A2B7Dh                             
+011A2B31  xor     edi,edi                                             
+011A2B33  nop     [rax]                                               
+011A2B37  nop     [rax+rax]                                           
+011A2B40  xor     r8d,r8d                                             
+011A2B43  mov     edx,r12d                                            
+011A2B46  mov     rcx,rbx                                             
+011A2B49  call    00000001811D9AF0h                                      ; ro$$hbp
+011A2B4E  test    rsi,rsi                                             
+011A2B51  je      00000001811A2D79h                                   
+011A2B57  cmp     edi,[rsi+18h]                                       
+011A2B5A  jae     00000001811A2D73h                                   
+011A2B60  mov     ecx,edi                                             
+011A2B62  mov     rdx,rax                                             
+011A2B65  add     rcx,4                                               
+011A2B69  mov     [rsi+rdi*8+20h],rax                                 
+011A2B6E  lea     rcx,[rsi+rcx*8]                                     
+011A2B72  call    0000000180216230h                                   
+011A2B77  inc     edi                                                 
+011A2B79  cmp     edi,ebp                                             
+011A2B7B  jl      short 00000001811A2B40h                             
+011A2B7D  lea     rcx,[r15+28h]                                       
+011A2B81  mov     [r15+28h],rsi                                       
+011A2B85  mov     rdx,rsi                                             
+011A2B88  call    0000000180216230h                                   
+011A2B8D  xor     r8d,r8d                                             
+011A2B90  mov     edx,r12d                                            
+011A2B93  mov     rcx,rbx                                             
+011A2B96  call    00000001811D9AF0h                                      ; ro$$hbp
+011A2B9B  mov     rcx,[182412150h]                                       ; qv_TypeInfo
+011A2BA2  mov     rdi,rax                                             
+011A2BA5  call    0000000180217830h                                   
+011A2BAA  xor     edx,edx                                             
+011A2BAC  mov     rcx,rax                                             
+011A2BAF  mov     rsi,rax                                             
+011A2BB2  call    00000001802E3490h                                      ; Mono.Xml.SecurityParser$$OnStartParsing
+011A2BB7  mov     eax,[rsp+60h]                                       
+011A2BBB  lea     rcx,[rsi+10h]                                       
+011A2BBF  mov     [rsi+18h],eax                                       
+011A2BC2  mov     rdx,rdi                                             
+011A2BC5  mov     eax,[rsp+70h]                                       
+011A2BC9  mov     [rsi+1Ch],eax                                       
+011A2BCC  mov     [rsi+10h],rdi                                       
+011A2BD0  call    0000000180216230h                                   
+011A2BD5  lea     rcx,[r15+30h]                                       
+011A2BD9  mov     [r15+30h],rsi                                       
+011A2BDD  mov     rdx,rsi                                             
+011A2BE0  call    0000000180216230h                                   
+011A2BE5  mov     r8,[r15+40h]                                        
+011A2BE9  xor     r9d,r9d                                             
+011A2BEC  mov     rdx,r14                                             
+011A2BEF  mov     rcx,rbx                                             
+011A2BF2  call    00000001811A2D80h                                      ; qx$$gxh
+011A2BF7  lea     rcx,[r15+38h]                                       
+011A2BFB  mov     [r15+38h],rax                                       
+011A2BFF  mov     rdx,rax                                             
+011A2C02  call    0000000180216230h                                   
+011A2C07  xor     edx,edx                                             
+011A2C09  mov     rcx,rbx                                             
+011A2C0C  call    00000001811A2FF0h                                      ; qx$$gxi
+011A2C11  lea     rcx,[r15+48h]                                       
+011A2C15  mov     [r15+48h],rax                                       
+011A2C19  mov     rdx,rax                                             
+011A2C1C  call    0000000180216230h                                   
+011A2C21  cmp     byte ptr [1825D0C26h],0                             
+011A2C28  jne     short 00000001811A2C3Dh                             
+011A2C2A  lea     rcx,[1823FBA20h]                                       ; GoPet.Core.MapData.MapEntrance[]_TypeInfo
+011A2C31  call    0000000180217380h                                   
+011A2C36  mov     byte ptr [1825D0C26h],1                             
+011A2C3D  xor     edx,edx                                             
+011A2C3F  mov     rcx,rbx                                             
+011A2C42  call    00000001811D97E0h                                      ; ro$$nre
+011A2C47  mov     rcx,[1823FBA20h]                                       ; GoPet.Core.MapData.MapEntrance[]_TypeInfo
+011A2C4E  movsx   edi,al                                              
+011A2C51  mov     edx,edi                                             
+011A2C53  mov     ebp,edi                                             
+011A2C55  call    0000000180216350h                                   
+011A2C5A  mov     rsi,rax                                             
+011A2C5D  test    dil,dil                                             
+011A2C60  jle     short 00000001811A2CC5h                             
+011A2C62  xor     edi,edi                                             
+011A2C64  nop     [rax]                                               
+011A2C68  nop     [rax+rax]                                           
+011A2C70  xor     edx,edx                                             
+011A2C72  mov     byte ptr [rsp+61h],0                                
+011A2C77  mov     rcx,rbx                                             
+011A2C7A  call    00000001811D97E0h                                      ; ro$$nre
+011A2C7F  xor     edx,edx                                             
+011A2C81  mov     [rsp+60h],al                                        
+011A2C85  mov     rcx,rbx                                             
+011A2C88  call    00000001811D92A0h                                      ; ro$$fjq
+011A2C8D  xor     edx,edx                                             
+011A2C8F  mov     [rsp+62h],ax                                        
+011A2C94  mov     rcx,rbx                                             
+011A2C97  call    00000001811D92A0h                                      ; ro$$fjq
+011A2C9C  test    rsi,rsi                                             
+011A2C9F  je      00000001811A2D79h                                   
+011A2CA5  cmp     edi,[rsi+18h]                                       
+011A2CA8  jae     00000001811A2D73h                                   
+011A2CAE  mov     ecx,[rsp+60h]                                       
+011A2CB2  lea     rdx,[rdi+rdi*2]                                     
+011A2CB6  inc     edi                                                 
+011A2CB8  mov     [rsi+rdx*2+20h],ecx                                 
+011A2CBC  mov     [rsi+rdx*2+24h],ax                                  
+011A2CC1  cmp     edi,ebp                                             
+011A2CC3  jl      short 00000001811A2C70h                             
+011A2CC5  lea     rcx,[r15+50h]                                       
+011A2CC9  mov     [r15+50h],rsi                                       
+011A2CCD  mov     rdx,rsi                                             
+011A2CD0  call    0000000180216230h                                   
+011A2CD5  xor     edx,edx                                             
+011A2CD7  mov     rcx,rbx                                             
+011A2CDA  call    00000001811D9610h                                      ; ro$$hbc
+011A2CDF  mov     r14,[rsp+28h]                                       
+011A2CE4  mov     r13,[rsp+30h]                                       
+011A2CE9  mov     r12,[rsp+38h]                                       
+011A2CEE  mov     rsi,[rsp+40h]                                       
+011A2CF3  mov     rbp,[rsp+48h]                                       
+011A2CF8  mov     rbx,[rsp+68h]                                       
+011A2CFD  mov     [r15+58h],eax                                       
+011A2D01  mov     rax,r15                                             
+011A2D04  mov     r15,[rsp+20h]                                       
+011A2D09  add     rsp,50h                                             
+011A2D0D  pop     rdi                                                 
+011A2D0E  ret                                                         
+011A2D0F  lea     rcx,[18240B878h]                                       ; <PrivateImplementationDetails>{804A464A-2151-4EEA-82A8-6D0E9EC136F9}.a_TypeInfo
+011A2D16  call    00000001802173A0h                                   
+011A2D1B  cmp     dword ptr [rax+0DCh],0                              
+011A2D22  jne     short 00000001811A2D2Ch                             
+011A2D24  mov     rcx,rax                                             
+011A2D27  call    0000000180217940h                                   
+011A2D2C  xor     ecx,ecx                                             
+011A2D2E  call    00000001811B6500h                                      ; <PrivateImplementationDetails>{804A464A-2151-4EEA-82A8-6D0E9EC136F9}.a$$blf
+011A2D33  lea     rcx,[182404460h]                                       ; System.ArgumentNullException_TypeInfo
+011A2D3A  mov     rbx,rax                                             
+011A2D3D  call    00000001802173A0h                                   
+011A2D42  mov     rcx,rax                                             
+011A2D45  call    0000000180217830h                                   
+011A2D4A  xor     r8d,r8d                                             
+011A2D4D  mov     rdx,rbx                                             
+011A2D50  mov     rcx,rax                                             
+011A2D53  mov     rdi,rax                                             
+011A2D56  call    000000018138C250h                                      ; System.ArgumentNullException$$.ctor
+011A2D5B  lea     rcx,[182404980h]                                       ; Method$qx.gxg()
+011A2D62  call    00000001802173A0h                                   
+011A2D67  mov     rdx,rax                                             
+011A2D6A  mov     rcx,rdi                                             
+011A2D6D  call    0000000180217840h                                   
+011A2D72  int3                                                        

@@ -1,0 +1,12 @@
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\bin\Debug\GoPetMod.deps.json
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\bin\Debug\GoPetMod.dll
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\bin\Debug\GoPetMod.pdb
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.csproj.AssemblyReference.cache
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.GeneratedMSBuildEditorConfig.editorconfig
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.AssemblyInfoInputs.cache
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.AssemblyInfo.cs
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.csproj.CoreCompileInputs.cache
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.dll
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\refint\GoPetMod.dll
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.pdb
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\ref\GoPetMod.dll

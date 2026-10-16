@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "GoPet (MelonLoader)": {
+      "commandName": "Executable",
+      "executablePath": "D:/gopetUnity/goPetHD (1)/goPetHD_mod/GoPet.Unity.exe",
+      "workingDirectory": "D:/gopetUnity/goPetHD (1)/goPetHD_mod"
+    }
+  }
+}

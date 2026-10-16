@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <AssemblyName>GoPetMod</AssemblyName>
+    <RootNamespace>GoPetMod</RootNamespace>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>portable</DebugType>
+    <RollForward>Major</RollForward>
+  </PropertyGroup>
+
+  <!-- Thư mục game đã cài MelonLoader (đổi nếu bạn di chuyển game) -->
+  <PropertyGroup>
+    <GameDir Condition="'$(GameDir)' == ''">$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\..\..\goPetHD_mod'))</GameDir>
+    <MLDir>$(GameDir)\MelonLoader</MLDir>
+    <Il2CppDir>$(MLDir)\Il2CppAssemblies</Il2CppDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- MelonLoader + Harmony + Il2CppInterop -->
+    <Reference Include="$(MLDir)\net6\MelonLoader.dll" Private="false" />
+    <Reference Include="$(MLDir)\net6\0Harmony.dll" Private="false" />
+    <Reference Include="$(MLDir)\net6\Il2CppInterop.Runtime.dll" Private="false" />
+    <Reference Include="$(MLDir)\net6\Il2CppInterop.Common.dll" Private="false" />
+
+    <!-- Assembly interop do MelonLoader sinh ra từ GameAssembly.dll (Unity + GoPet.Client/Core...) -->
+    <Reference Include="$(Il2CppDir)\*.dll" Private="false" />
+  </ItemGroup>
+
+  <!-- Sau khi build: copy mod vào thư mục Mods của game -->
+  <Target Name="CopyToMods" AfterTargets="Build" Condition="Exists('$(GameDir)\Mods')">
+    <Copy SourceFiles="$(TargetPath);$(TargetDir)$(TargetName).pdb" DestinationFolder="$(GameDir)\Mods" SkipUnchangedFiles="true" ContinueOnError="true" />
+    <Message Importance="high" Text="GoPetMod -> $(GameDir)\Mods" />
+  </Target>
+
+</Project>
