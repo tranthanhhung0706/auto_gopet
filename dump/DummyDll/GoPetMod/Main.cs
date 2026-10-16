@@ -71,7 +71,9 @@ namespace GoPetMod
             if (_text == null)
                 return;
 
-            _text.text = $"{_fps:0} FPS ({_ms:0.0} ms)";
+            // ASCII only: the TMP font atlas may not contain Vietnamese glyphs.
+            var heal = AutoHeal.Enabled ? "<color=#00FF00>ON</color>" : "<color=#FF4040>OFF</color>";
+            _text.text = $"{_fps:0} FPS ({_ms:0.0} ms)\n<color=#FFFFFF>AutoHeal: </color>{heal} <color=#FFFFFF>(F9)</color>";
             _text.color = _fps >= 50 ? Color.green : _fps >= 30 ? Color.yellow : Color.red;
         }
 
@@ -104,7 +106,7 @@ namespace GoPetMod
             var rect = _text.rectTransform;
             rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(0f, 1f);
             rect.anchoredPosition = new Vector2(10f, -10f);
-            rect.sizeDelta = new Vector2(400f, 40f);
+            rect.sizeDelta = new Vector2(400f, 70f);
 
             _root.SetActive(_visible);
             MelonLogger.Msg($"FPS overlay created (font: {font.name}).");

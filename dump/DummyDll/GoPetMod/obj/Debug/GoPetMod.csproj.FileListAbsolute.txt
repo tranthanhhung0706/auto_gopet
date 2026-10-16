@@ -10,3 +10,4 @@ D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.dll
 D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\refint\GoPetMod.dll
 D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.pdb
 D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\ref\GoPetMod.dll
+D:\gopetUnity\goPetHD (1)\dump\DummyDll\GoPetMod\obj\Debug\GoPetMod.sourcelink.json
