@@ -15,10 +15,14 @@ namespace GoPetMod
     // moving sends [0x2D, 0] (rest off).
     internal static class AutoHeal
     {
-        private const float Threshold = 0.9f;
+        // HP percent below which auto-heal acts; set in game from the main menu ("Tự hồi phục") and saved in
+        // UserData/MelonPreferences.cfg.
+        private static MelonPreferences_Entry<int> _percentPref;
+        public static int Percent => _percentPref?.Value ?? 90;
+        private static float Threshold => Percent / 100f;
         // Below this HP ratio the game's own auto-attack ("Tự Động") is paused, like pressing its II button,
         // so the fight ends and resting is allowed.
-        private const float PauseAutoThreshold = Threshold;
+        private static float PauseAutoThreshold => Threshold;
         // Auto paused by the mod is started again once HP is back to this ratio (1 = full).
         private const float ResumeAutoThreshold = 1f;
         private const float RetrySeconds = 5f;
@@ -31,6 +35,27 @@ namespace GoPetMod
         private const byte RestSub = 0x2D;
 
         public static bool Enabled = true;
+
+        public static void Init()
+        {
+            var category = MelonPreferences.CreateCategory("GoPetMod");
+            _percentPref = category.CreateEntry("AutoHealPercent", 90, "Auto heal below this HP percent");
+        }
+
+        public static void SetPercent(int percent)
+        {
+            _percentPref.Value = percent;
+            MelonPreferences.Save();
+            Enabled = true;
+            _wasLow = false;
+            ShowStatus();
+        }
+
+        public static void Disable()
+        {
+            Enabled = false;
+            ShowStatus();
+        }
 
         private static fu _session;
         private static jy _auto;
@@ -52,7 +77,7 @@ namespace GoPetMod
         // Uses the game's own small banner (GoPet.Ui.Banner), so the text is drawn with the game's font.
         private static void ShowStatus()
         {
-            var text = $"Tự hồi phục: {(Enabled ? "BẬT" : "TẮT")} (F9)";
+            var text = Enabled ? $"Tự hồi phục: BẬT, dưới {Percent}% máu" : "Tự hồi phục: TẮT";
             MelonLogger.Msg($"[AutoHeal] {text}");
             try
             {
@@ -101,7 +126,7 @@ namespace GoPetMod
             if (low != _wasLow)
             {
                 _wasLow = low;
-                MelonLogger.Msg($"[AutoHeal] HP {hp}/{maxHp} {(low ? "< 50%" : ">= 50%")}");
+                MelonLogger.Msg($"[AutoHeal] HP {hp}/{maxHp} {(low ? "<" : ">=")} {Percent}%");
             }
             if (!low)
             {
