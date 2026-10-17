@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Disasm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+49d00929e1150dbd595242255b7dd027b7a8acba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c1fe24a7fa4cdd6e8cdfb73806aed35461959b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Disasm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Disasm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

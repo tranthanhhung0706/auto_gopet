@@ -73,7 +73,7 @@ namespace GoPetMod
                 return;
 
             // ASCII only: the TMP font atlas may not contain Vietnamese glyphs.
-            var heal = AutoHeal.Enabled ? $"<color=#00FF00>ON {AutoHeal.Percent}%</color>" : "<color=#FF4040>OFF</color>";
+            var heal = AutoHeal.Enabled ? $"<color=#00FF00>ON HP{AutoHeal.Percent}% MP{(AutoHeal.MpPercent > 0 ? AutoHeal.MpPercent + "%" : "-")}</color>" : "<color=#FF4040>OFF</color>";
             _text.text = $"{_fps:0} FPS ({_ms:0.0} ms)\n<color=#FFFFFF>AutoHeal: </color>{heal} <color=#FFFFFF>(F9)</color>";
             _text.color = _fps >= 50 ? Color.green : _fps >= 30 ? Color.yellow : Color.red;
         }

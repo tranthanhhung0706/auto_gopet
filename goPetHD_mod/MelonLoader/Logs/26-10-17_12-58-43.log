@@ -1,0 +1,236 @@
+[12:58:43.090] [BS DEBUG] Attaching Symbol Redirect...
+[12:58:43.090] [BS DEBUG] Plt hooked GetProcAddress successfully
+[12:58:43.091] [BS DEBUG] Symbol Redirect Attached!
+[12:58:43.175] [BS DEBUG] Initializing Runtime
+[12:58:43.175] [BS DEBUG] Redirecting il2cpp_init
+[12:58:43.176] [BS DEBUG] Redirecting il2cpp_runtime_invoke
+[12:58:43.183] [BS DEBUG] In init detour
+[12:58:43.242] [BS DEBUG] Attempting to load hostfxr using .NET runtime from: D:\gopetUnity\goPetHD (1)\goPetHD_mod\dotnet
+[12:58:43.242] [BS DEBUG] Attempting to load hostfxr using .NET runtime from: D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Dependencies\dotnet
+[12:58:43.242] [BS DEBUG] Attempting to load hostfxr from system
+[12:58:43.264] [BS DEBUG] Attempting to use HostFXR Path: C:\Program Files\dotnet\host\fxr\10.0.12\hostfxr.dll
+[12:58:43.265] [MelonLoader.Bootstrap] Using HostFXR Path: C:\Program Files\dotnet\host\fxr\10.0.12\hostfxr.dll
+[12:58:43.265] [MelonLoader.Bootstrap] Using .NET runtime: 'C:\Program Files\dotnet\host\fxr\10.0.12\hostfxr.dll'
+[12:58:43.265] [BS DEBUG] Initializing domain
+[12:58:43.269] [BS DEBUG] Loading NativeHost assembly
+[12:58:43.300] [BS DEBUG] Invoking NativeHost entry
+
+[12:58:43.657] ------------------------------
+[12:58:43.658] MelonLoader v0.7.3 Open-Beta
+[12:58:43.659] OS: Windows 11
+[12:58:43.660] Hash Code: BDD43DC0F3893C208C95389B863AB61C967AE14204DA0DD8051647E754C8709B
+[12:58:43.660] ------------------------------
+[12:58:43.660] Game Type: Il2cpp
+[12:58:43.660] Game Arch: x64
+[12:58:43.660] ------------------------------
+[12:58:43.661] Command-Line: 
+[12:58:43.661] ------------------------------
+[12:58:43.661] Core::BasePath = D:\gopetUnity\goPetHD (1)\goPetHD_mod
+[12:58:43.662] Game::BasePath = D:\gopetUnity\goPetHD (1)\goPetHD_mod
+[12:58:43.662] Game::DataPath = D:\gopetUnity\goPetHD (1)\goPetHD_mod\GoPet.Unity_Data
+[12:58:43.664] Game::ApplicationPath = D:\gopetUnity\goPetHD (1)\goPetHD_mod\GoPet.Unity.exe
+[12:58:43.664] Runtime Type: net6
+[12:58:43.745] [ERROR] [DEBUG] System.IO.EndOfStreamException: Unable to read beyond the end of the stream.
+   at System.IO.BinaryReader.InternalRead(Int32 numBytes)
+   at System.IO.BinaryReader.ReadInt32()
+   at AssetsTools.NET.AssetsFileReader.ReadInt32()
+   at AssetsTools.NET.AssetTypeTemplateField.ReadType(AssetsFileReader reader, AssetTypeValueField valueField, RefTypeManager refMan)
+   at AssetsTools.NET.AssetTypeTemplateField.ReadType(AssetsFileReader reader, AssetTypeValueField valueField, RefTypeManager refMan)
+   at AssetsTools.NET.AssetTypeTemplateField.MakeValue(AssetsFileReader reader, RefTypeManager refMan)
+   at AssetsTools.NET.AssetTypeTemplateField.MakeValue(AssetsFileReader reader, Int64 position, RefTypeManager refMan)
+   at AssetsTools.NET.Extra.AssetsManager.GetBaseField(AssetsFileInstance inst, AssetFileInfo info, AssetReadFlags readFlags)
+   at MelonLoader.InternalUtils.UnityInformationHandler.ReadGameInfo(AssetsManager assetsManager, String gameDataPath) in D:\a\MelonLoader\MelonLoader\MelonLoader\InternalUtils\UnityInformationHandler.cs:line 116
+[12:58:43.751] ------------------------------
+[12:58:43.752] Game Name: GoPet.Unity
+[12:58:43.752] Game Developer: DefaultCompany
+[12:58:43.755] Unity Version: 6000.6.3f1
+[12:58:43.755] Game Version: UNKNOWN
+[12:58:43.755] ------------------------------
+
+[12:58:43.760] [DEBUG] [MelonAssemblyResolver] Setup Successful!
+[12:58:43.762] [DEBUG] Patching MonoMod DetourContext.Dispose...
+[12:58:43.875] [DEBUG] Patched MonoMod DetourContext.Dispose -> IsDisposed
+[12:58:44.156] [DEBUG] Patching AsmResolver Utf8String.Concat(byte[])...
+[12:58:44.191] [DEBUG] Patching Il2CppInterop MethodRewriteContext.UnmangleMethodNameWithSignature...
+[12:58:44.207] [DEBUG] Patching Il2CppInterop Il2CppDetourMethodPatcher.ReportException...
+[12:58:44.220] [DEBUG] Patching Il2CppInterop ClassInjector.RegisterTypeInIl2Cpp...
+[12:58:44.250] [DEBUG] Patched Il2CppInterop ClassInjector.RegisterTypeInIl2Cpp -> FindAbstractMethods
+[12:58:44.250] [DEBUG] Patched Il2CppInterop ClassInjector.RegisterTypeInIl2Cpp -> InjectorHelpers.AddTypeToLookup
+[12:58:44.278] [DEBUG] Patching Il2CppInterop ClassInjector.IsTypeSupported...
+[12:58:44.280] [DEBUG] Patched Il2CppInterop ClassInjector.IsTypeSupported -> Type.IsByRef
+[12:58:44.281] [DEBUG] Patching Il2CppInterop ClassInjector.RewriteType...
+[12:58:44.288] [DEBUG] Patching Il2CppInterop ClassInjector.ConvertMethodInfo...
+[12:58:44.298] [DEBUG] Patched Il2CppInterop ClassInjector.ConvertMethodInfo -> Type.IsByRef
+[12:58:44.304] [DEBUG] Patching Il2CppInterop ILGeneratorEx.EmitObjectToPointer...
+[12:58:44.313] [DEBUG] Patching Il2CppInterop RewriteGlobalContext.AddAssemblyContext...
+[12:58:44.315] [DEBUG] Patching Il2CppInterop RewriteGlobalContext.Dispose...
+[12:58:44.317] [DEBUG] Patching Il2CppInterop RewriteGlobalContext.GetNewAssemblyForOriginal...
+[12:58:44.318] [DEBUG] Patching Il2CppInterop RewriteGlobalContext.TryGetNewTypeForOriginal...
+[12:58:44.320] [DEBUG] Patching Il2CppInterop InjectorHelpers.Setup...
+[12:58:44.331] [DEBUG] Patching il2cpp_resolve_icall...
+[12:58:44.607] Preferences Loaded!
+[12:58:44.610] [DEBUG] Ignoring MelonModule 'D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Dependencies\CompatibilityLayers\IPA.dll'...
+[12:58:44.610] [DEBUG] Compatibility Layer Loaded: D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Dependencies\CompatibilityLayers\IPA.dll
+
+[12:58:44.627] Loading UserLibs...
+[12:58:44.629] 0 UserLibs loaded.
+
+[12:58:44.629] Loading Plugins...
+[12:58:44.637] 0 Plugins loaded.
+
+[12:58:45.900] [BS DEBUG] Invoke hijacked
+[12:58:45.903] Loading Il2CppAssemblyGenerator...
+[12:58:45.948] [Il2CppAssemblyGenerator] Contacting RemoteAPI...
+[12:58:45.953] [DEBUG] ContactURL = https://api.melonloader.com/api/v1/game/gopet.unity
+[12:58:46.319] [Il2CppAssemblyGenerator] Game Not Found on RemoteAPI Host (https://api.melonloader.com/api/v1/game/gopet.unity)
+[12:58:46.320] [Il2CppAssemblyGenerator] RemoteAPI.DumperVersion = null
+[12:58:46.320] [Il2CppAssemblyGenerator] RemoteAPI.ObfuscationRegex = null
+[12:58:46.320] [Il2CppAssemblyGenerator] RemoteAPI.MappingURL = null
+[12:58:46.320] [Il2CppAssemblyGenerator] RemoteAPI.MappingFileSHA512 = null
+[12:58:46.325] [Il2CppAssemblyGenerator] Using Cpp2IL Version: 2022.1.0-pre-release.21
+[12:58:46.326] [Il2CppAssemblyGenerator] Using Il2CppInterop Version = 1.5.1-ci.845+f03c8f4ae507d47ea814f3d11d1ec6b0391c1576
+[12:58:46.326] [Il2CppAssemblyGenerator] Using Unity Dependencies Version = 6000.6.3
+[12:58:46.326] [Il2CppAssemblyGenerator] Using Deobfuscation Regex = null
+[12:58:46.326] [Il2CppAssemblyGenerator] Cpp2IL is up to date.
+[12:58:46.327] [Il2CppAssemblyGenerator] Cpp2IL.Plugin.StrippedCodeRegSupport is up to date.
+[12:58:46.327] [Il2CppAssemblyGenerator] UnityDependencies is up to date.
+[12:58:46.328] [Il2CppAssemblyGenerator] Checking GameAssembly...
+[12:58:46.328] [DEBUG] Last GameAssembly Hash: CCF2E9A2E92B87ADE6656004B6CC2895FED25DBED5D112C6376C593369AA37DE0F3CAC73A0412BA60E21C36F9CB9E1DD8F7703E437EDA47788A87877FD8C88BF
+[12:58:46.431] [DEBUG] Current GameAssembly Hash: CCF2E9A2E92B87ADE6656004B6CC2895FED25DBED5D112C6376C593369AA37DE0F3CAC73A0412BA60E21C36F9CB9E1DD8F7703E437EDA47788A87877FD8C88BF
+[12:58:46.431] [Il2CppAssemblyGenerator] Assembly is up to date. No Generation Needed.
+
+[12:58:46.432] Loading Mods...
+[12:58:46.468] ------------------------------
+[12:58:46.471] Melon Assembly loaded: '.\Mods\GoPetMod.dll'
+[12:58:46.471] SHA256 Hash: '3E87BDCE71FF026D9D003125EFF77887D076A87F68ECA14C2F3C9C90093C2585'
+
+[12:58:46.493] [DEBUG] [MelonAssemblyResolver] Attempting to find Il2CppGoPet.Client
+[12:58:46.494] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.494] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.495] [DEBUG] [MelonAssemblyResolver] Loading Il2CppGoPet.Client from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\Il2CppGoPet.Client.dll...
+[12:58:46.575] [DEBUG] [MelonAssemblyResolver] Attempting to find Il2CppGoPet.Core
+[12:58:46.575] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.576] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.576] [DEBUG] [MelonAssemblyResolver] Loading Il2CppGoPet.Core from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\Il2CppGoPet.Core.dll...
+[12:58:46.597] [DEBUG] [MelonAssemblyResolver] Attempting to find Unity.InputSystem
+[12:58:46.597] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.597] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.598] [DEBUG] [MelonAssemblyResolver] Loading Unity.InputSystem from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\Unity.InputSystem.dll...
+[12:58:46.644] [DEBUG] [MelonAssemblyResolver] Attempting to find UnityEngine.CoreModule
+[12:58:46.644] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.645] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.646] [DEBUG] [MelonAssemblyResolver] Loading UnityEngine.CoreModule from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\UnityEngine.CoreModule.dll...
+[12:58:46.725] [DEBUG] [MelonAssemblyResolver] Attempting to find Unity.TextMeshPro
+[12:58:46.725] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.726] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.726] [DEBUG] [MelonAssemblyResolver] Loading Unity.TextMeshPro from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\Unity.TextMeshPro.dll...
+[12:58:46.741] [DEBUG] [MelonAssemblyResolver] Attempting to find UnityEngine.UIModule
+[12:58:46.741] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.742] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.742] [DEBUG] [MelonAssemblyResolver] Loading UnityEngine.UIModule from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\UnityEngine.UIModule.dll...
+[12:58:46.745] [DEBUG] [MelonAssemblyResolver] Attempting to find Il2Cppmscorlib
+[12:58:46.746] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.747] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.747] [DEBUG] [MelonAssemblyResolver] Loading Il2Cppmscorlib from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\Il2Cppmscorlib.dll...
+[12:58:46.810] [DEBUG] [MelonAssemblyResolver] Attempting to find UnityEngine.UI
+[12:58:46.810] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.811] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.811] [DEBUG] [MelonAssemblyResolver] Loading UnityEngine.UI from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\UnityEngine.UI.dll...
+[12:58:46.822] [DEBUG] [MelonAssemblyResolver] Attempting to find UnityEngine.InputLegacyModule
+[12:58:46.823] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:46.823] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:46.823] [DEBUG] [MelonAssemblyResolver] Loading UnityEngine.InputLegacyModule from D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies\UnityEngine.InputLegacyModule.dll...
+[12:58:46.838] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnApplicationQuit
+[12:58:46.838] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnUpdate
+[12:58:46.838] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnLateUpdate
+[12:58:46.839] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnGUI
+[12:58:46.839] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnFixedUpdate
+[12:58:46.839] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnApplicationLateStart
+[12:58:46.839] [DEBUG] MelonAssembly 'GoPetMod' subscribed with PrefsLoaded
+[12:58:46.839] [DEBUG] MelonAssembly 'GoPetMod' subscribed with PrefsSaved
+[12:58:46.840] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnSceneWasLoaded
+[12:58:46.840] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnSceneWasInitialized
+[12:58:46.840] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnSceneWasUnloaded
+[12:58:46.840] [DEBUG] MelonAssembly 'GoPetMod' subscribed with <RegisterObsoleteCallbacks>b__3_0
+[12:58:46.843] [DEBUG] MelonAssembly 'GoPetMod' subscribed with <RegisterObsoleteCallbacks>b__3_1
+[12:58:46.844] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnApplicationStart
+[12:58:46.846] [DEBUG] MelonAssembly 'GoPetMod' subscribed with HarmonyInit
+[12:58:46.847] ------------------------------
+[12:58:46.848] GoPetMod v1.0.0
+[12:58:46.848] by you
+[12:58:46.848] Assembly: GoPetMod.dll
+[12:58:46.849] ------------------------------
+[12:58:46.849] [DEBUG] MelonAssembly 'GoPetMod' subscribed with LoaderInitialized
+[12:58:46.849] [DEBUG] MelonAssembly 'GoPetMod' subscribed with OnLateInitializeMelon
+[12:58:46.850] ------------------------------
+[12:58:46.851] 1 Mod loaded.
+
+[12:58:47.708] [DEBUG] GenericMethod::GetMethod found: 0x7FF95A08DF20
+[12:58:47.718] [DEBUG] il2cpp_image_get_class: 0x7FF95A0BC4E0
+[12:58:47.718] [DEBUG] Image::GetType: 0x7FF95A080A80
+[12:58:47.719] [DEBUG] imageGetTypeXrefs.Length: 2
+[12:58:47.719] [DEBUG] getTypeInfoFromHandle: 7FF95A03F3A0
+[12:58:47.720] [DEBUG] MetadataCache::GetTypeInfoFromTypeDefinitionIndex found: 0x7FF95A03F470
+[12:58:48.170] [DEBUG] Couldn't fetch Class::GetDefaultFieldValue with signatures, using method traversal
+[12:58:48.171] [DEBUG] il2cpp_field_static_get_value: 0x7FF95A0BC200
+[12:58:48.171] [DEBUG] Field::StaticGetValue: 0x7FF95A074A70
+[12:58:48.172] [DEBUG] Field::StaticGetValueInternal: 0x7FF95A074A80
+[12:58:48.173] [DEBUG] Class::GetDefaultFieldValue found: 0x7FF95A052140
+[12:58:48.350] [WARNING] [Il2CppInterop] Class::Init signatures have been exhausted, using a substitute!
+[12:58:48.352] [DEBUG] Picked mono_class_instance_size as a Class::Init substitute
+[12:58:48.352] [DEBUG] Class::Init: 0x7FF95A0BD290
+[12:58:48.353] [DEBUG] il2cpp_class_from_il2cpp_type: 0x7FF95A036BF0
+[12:58:48.353] [DEBUG] Class::FromIl2CppType found: 0x7FF95A051510
+[12:58:48.354] [DEBUG] il2cpp_class_from_name: 0x7FF95A0BBDD0
+[12:58:48.355] [DEBUG] Class::FromName found: 0x7FF95A051A70
+[12:58:48.388] [DEBUG] [MelonAssemblyResolver] Attempting to find Il2CppSystem.Private.CoreLib
+[12:58:48.388] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:48.389] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:48.390] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\UserLibs
+[12:58:48.390] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\Plugins
+[12:58:48.390] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\Mods
+[12:58:48.391] [DEBUG] [MelonAssemblyResolver] Failed to find Il2CppSystem.Private.CoreLib in any of the known search directories
+[12:58:48.403] [Il2CppInterop] Registered mono type MelonLoader.Support.MonoEnumeratorWrapper in il2cpp domain
+[12:58:48.526] [DEBUG] Hooked into static void UnityEngine.SceneManagement.SceneManager::Internal_SceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+[12:58:48.550] [DEBUG] Hooked into static void UnityEngine.SceneManagement.SceneManager::Internal_SceneUnloaded(UnityEngine.SceneManagement.Scene scene)
+[12:58:48.551] Support Module Loaded: D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Dependencies\SupportModules\Il2Cpp.dll
+[12:58:48.551] [DEBUG] Invoking AddUnityDebugLog
+[12:58:48.558] [DEBUG] Invoking MelonHarmonyInit
+[12:58:48.602] [GoPetMod] HarmonyInit PatchAll: GoPetMod.AutoHeal+AutoPatch
+[12:58:48.859] [GoPetMod] HarmonyInit PatchAll: GoPetMod.AutoHeal+ServerMessagePatch
+[12:58:48.893] [GoPetMod] HarmonyInit PatchAll: GoPetMod.AutoHeal+ReceivePatch
+[12:58:48.916] [GoPetMod] HarmonyInit PatchAll: GoPetMod.AutoHeal+SendPatch
+[12:58:48.940] [GoPetMod] HarmonyInit PatchAll: GoPetMod.AutoHealMenu+MainMenuPatch
+[12:58:48.961] [GoPetMod] HarmonyInit PatchAll: GoPetMod.AutoHealMenu+AddItemPatch
+[12:58:48.982] [GoPetMod] HarmonyInit PatchAll: GoPetMod.AutoHealMenu+CommandPatch
+[12:58:48.983] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with HarmonyInit
+[12:58:48.983] [DEBUG] Invoking OnApplicationStart
+[12:58:48.987] [GoPetMod] GoPetMod loaded. F10: bật/tắt FPS, F9: bật/tắt tự hồi phục.
+[12:58:48.987] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with LoaderInitialized
+[12:58:51.363] [DEBUG] [MelonAssemblyResolver] Attempting to find Il2CppSystem.Private.CoreLib
+[12:58:51.363] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\net6
+[12:58:51.365] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\MelonLoader\Il2CppAssemblies
+[12:58:51.365] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\UserLibs
+[12:58:51.366] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\Plugins
+[12:58:51.366] [DEBUG] [MelonAssemblyResolver] Searching directory D:\gopetUnity\goPetHD (1)\goPetHD_mod\Mods
+[12:58:51.367] [DEBUG] [MelonAssemblyResolver] Failed to find Il2CppSystem.Private.CoreLib in any of the known search directories
+[12:58:51.367] [Il2CppInterop] Registered mono type MelonLoader.Support.SM_Component in il2cpp domain
+[12:58:51.384] [DEBUG] Generating Trampoline for UnityEngine.Transform::SetAsLastSibling
+[12:58:51.391] Registered mono icall UnityEngine.Transform::SetAsLastSibling in il2cpp domain
+[12:58:51.394] [GoPetMod] Scene loaded: SampleScene (0)
+[12:58:51.938] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnLateInitializeMelon
+[12:58:51.982] [GoPetMod] FPS overlay created (font: LiberationSans SDF).
+[12:58:59.111] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnApplicationQuit
+[12:58:59.111] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnUpdate
+[12:58:59.112] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnLateUpdate
+[12:58:59.113] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnGUI
+[12:58:59.113] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnFixedUpdate
+[12:58:59.113] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with PrefsLoaded
+[12:58:59.113] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with PrefsSaved
+[12:58:59.113] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnSceneWasLoaded
+[12:58:59.114] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnSceneWasInitialized
+[12:58:59.114] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with OnSceneWasUnloaded
+[12:58:59.115] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with <RegisterObsoleteCallbacks>b__3_0
+[12:58:59.116] [DEBUG] MelonAssembly 'GoPetMod' unsubscribed with <RegisterObsoleteCallbacks>b__3_1
+[12:58:59.117] [DEBUG] [ML Core] Received Quit Request! Shutting down...
+[12:58:59.141] Preferences Saved!

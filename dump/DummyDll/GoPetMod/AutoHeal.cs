@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace GoPetMod
 {
-    // Auto "Hồi phục": when HP drops below the threshold, send the same request as the heal button in the
+    // Auto "Hồi phục": when HP or MP drops below its threshold, send the same request as the heal button in the
     // radial menu. That button calls fu.bex(true) -> op.ghu(true) -> packet cmd 81 [0x2D, 1] (rest on);
     // moving sends [0x2D, 0] (rest off).
     internal static class AutoHeal
@@ -20,6 +20,10 @@ namespace GoPetMod
         private static MelonPreferences_Entry<int> _percentPref;
         public static int Percent => _percentPref?.Value ?? 90;
         private static float Threshold => Percent / 100f;
+        // Same for MP; 0 means MP is not checked.
+        private static MelonPreferences_Entry<int> _mpPercentPref;
+        public static int MpPercent => _mpPercentPref?.Value ?? 0;
+        private static float MpThreshold => MpPercent / 100f;
         // Below this HP ratio the game's own auto-attack ("Tự Động") is paused, like pressing its II button,
         // so the fight ends and resting is allowed.
         private static float PauseAutoThreshold => Threshold;
@@ -40,6 +44,15 @@ namespace GoPetMod
         {
             var category = MelonPreferences.CreateCategory("GoPetMod");
             _percentPref = category.CreateEntry("AutoHealPercent", 90, "Auto heal below this HP percent");
+            _mpPercentPref = category.CreateEntry("AutoHealMpPercent", 0, "Auto heal below this MP percent (0 = off)");
+        }
+
+        public static void SetMpPercent(int percent)
+        {
+            _mpPercentPref.Value = percent;
+            MelonPreferences.Save();
+            _wasLow = false;
+            ShowStatus();
         }
 
         public static void SetPercent(int percent)
@@ -60,11 +73,20 @@ namespace GoPetMod
         private static fu _session;
         private static jy _auto;
         private static bool _pausedByMod;
+        private static int _lastMap = int.MinValue;
+        // The game's own auto never runs on these maps: jy.fhn/fhm/duq/fho all skip map 12 and 31.
+        private static readonly int[] NoAutoMaps = { 31 };
         private static bool _resting;
         private static float _lastSendAt = -100f;
         private static int _hpAtSend;
+        private static int _mpAtSend;
+        private static int _prevMp = -1;
         private static bool _wasLow;
         private static int _prevHp = -1;
+        // Regen measurement: every HP increase is logged with its size and the time since the previous one.
+        private static float _lastHpGainAt = -1f;
+        private static int _regenStartHp = -1;
+        private static float _regenStartAt;
         private static float _lastHpDropAt = -100f;
         private static float _retrySeconds = RetrySeconds;
 
@@ -77,7 +99,9 @@ namespace GoPetMod
         // Uses the game's own small banner (GoPet.Ui.Banner), so the text is drawn with the game's font.
         private static void ShowStatus()
         {
-            var text = Enabled ? $"Tự hồi phục: BẬT, dưới {Percent}% máu" : "Tự hồi phục: TẮT";
+            var text = Enabled
+                ? $"Tự hồi phục: BẬT, HP dưới {Percent}%, " + (MpPercent > 0 ? $"MP dưới {MpPercent}%" : "MP tắt")
+                : "Tự hồi phục: TẮT";
             MelonLogger.Msg($"[AutoHeal] {text}");
             try
             {
@@ -94,16 +118,25 @@ namespace GoPetMod
             if (!Enabled || _session == null)
                 return;
 
-            int hp, maxHp;
+            int hp, maxHp, mp, maxMp;
             try
             {
+                var map = _session.jsd.nog;
+                if (map != _lastMap)
+                {
+                    _lastMap = map;
+                    var noAuto = Array.IndexOf(NoAutoMaps, map) >= 0;
+                    MelonLogger.Msg($"[AutoHeal] map {map}{(noAuto ? " (game tắt Tự Động ở map này)" : "")}");
+                }
                 var vitals = _session.jsd.noh;
                 hp = vitals.Hp;
                 maxHp = vitals.MaxHp;
+                mp = vitals.Mp;
+                maxMp = vitals.MaxMp;
             }
             catch (Exception e)
             {
-                MelonLogger.Warning($"[AutoHeal] read HP failed: {e.Message}");
+                MelonLogger.Warning($"[AutoHeal] read HP/MP failed: {e.Message}");
                 _session = null;
                 return;
             }
@@ -114,19 +147,34 @@ namespace GoPetMod
 
             var now = Time.unscaledTime;
             if (_prevHp >= 0 && hp < _prevHp)
+            {
                 _lastHpDropAt = now;
+                _lastHpGainAt = -1f;
+                _regenStartHp = -1;
+            }
+            else if (_prevHp >= 0 && hp > _prevHp)
+                LogRegen(hp, maxHp, now);
             _prevHp = hp;
+            // MP going down means skills are still being cast, i.e. still fighting.
+            if (_prevMp >= 0 && mp < _prevMp)
+                _lastHpDropAt = now;
+            _prevMp = mp;
 
-            if (hp < maxHp * PauseAutoThreshold)
-                PauseAuto(hp, maxHp);
-            else if (_pausedByMod && hp >= maxHp * ResumeAutoThreshold)
-                ResumeAuto(hp, maxHp);
+            var checkMp = MpPercent > 0 && maxMp > 0;
+            var lowHp = hp < maxHp * Threshold;
+            var lowMp = checkMp && mp < maxMp * MpThreshold;
+            var low = lowHp || lowMp;
+            var vitalsText = $"HP {hp}/{maxHp}, MP {mp}/{maxMp}";
 
-            var low = hp < maxHp * Threshold;
+            if (hp < maxHp * PauseAutoThreshold || lowMp)
+                PauseAuto(vitalsText, lowHp ? "Máu thấp" : "MP thấp");
+            else if (_pausedByMod && hp >= maxHp * ResumeAutoThreshold && (!checkMp || mp >= maxMp * ResumeAutoThreshold))
+                ResumeAuto(vitalsText);
+
             if (low != _wasLow)
             {
                 _wasLow = low;
-                MelonLogger.Msg($"[AutoHeal] HP {hp}/{maxHp} {(low ? "<" : ">=")} {Percent}%");
+                MelonLogger.Msg($"[AutoHeal] {vitalsText} " + (low ? $"thấp (HP<{Percent}%{(checkMp ? $" hoặc MP<{MpPercent}%" : "")})" : "đủ"));
             }
             if (!low)
             {
@@ -136,12 +184,13 @@ namespace GoPetMod
 
             if (now - _lastSendAt < _retrySeconds || now - _lastHpDropAt < QuietSeconds)
                 return;
-            // Already resting and HP is going up: leave it alone.
-            if (_resting && hp > _hpAtSend)
+            var recovering = hp > _hpAtSend || mp > _mpAtSend;
+            // Already resting and HP/MP is going up: leave it alone.
+            if (_resting && recovering)
                 return;
 
-            // The previous request did not get HP going up (refused in combat, or cancelled): wait longer next time.
-            if (_lastSendAt > 0 && hp <= _hpAtSend)
+            // The previous request did not get HP/MP going up (refused in combat, or cancelled): wait longer next time.
+            if (_lastSendAt > 0 && !recovering)
                 _retrySeconds = Math.Min(_retrySeconds * 2f, MaxRetrySeconds);
 
             try
@@ -150,7 +199,8 @@ namespace GoPetMod
                 {
                     _lastSendAt = now;
                     _hpAtSend = hp;
-                    MelonLogger.Msg($"[AutoHeal] Hồi phục (HP {hp}/{maxHp}, lần sau chờ {_retrySeconds:0}s)");
+                    _mpAtSend = mp;
+                    MelonLogger.Msg($"[AutoHeal] Hồi phục ({vitalsText}, lần sau chờ {_retrySeconds:0}s)");
                 }
             }
             catch (Exception e)
@@ -163,7 +213,7 @@ namespace GoPetMod
         // Same as pressing II on the "Tự Động" HUD. dw.eet() maps the HUD click zones: Pause -> jy.duq(map),
         // Close (X) -> jy.jmc() (turns auto off), Toggle -> collapse the panel. jy.duq(map) only acts while auto is
         // on (qi.nmg) and flips jy.lix ("Đang tạm dừng"), firing the UI event; calling it again resumes.
-        private static void PauseAuto(int hp, int maxHp)
+        private static void PauseAuto(string vitalsText, string reason)
         {
             if (_auto == null || _session == null)
                 return;
@@ -176,8 +226,8 @@ namespace GoPetMod
                 if (!_auto.lix)
                     return;
                 _pausedByMod = true;
-                MelonLogger.Msg($"[AutoHeal] Tạm dừng Tự Động (HP {hp}/{maxHp})");
-                Il2CppGoPet.Ui.Banner.bel("Máu thấp: tạm dừng Tự Động");
+                MelonLogger.Msg($"[AutoHeal] Tạm dừng Tự Động ({vitalsText})");
+                Il2CppGoPet.Ui.Banner.bel($"{reason}: tạm dừng Tự Động");
             }
             catch (Exception e)
             {
@@ -189,7 +239,7 @@ namespace GoPetMod
         // Undo PauseAuto by pressing II again (jy.duq flips the pause back).
         // Rest is cancelled first ([0x2D, 0]); otherwise the server still thinks we rest and refuses the attack
         // ("Mỗi lần chỉ được đánh 1 người").
-        private static void ResumeAuto(int hp, int maxHp)
+        private static void ResumeAuto(string vitalsText)
         {
             _pausedByMod = false;
             if (_auto == null || _session == null)
@@ -203,8 +253,8 @@ namespace GoPetMod
                 _session.bex(false);
                 _resting = false;
                 _auto.duq(_session.jsd.nog);
-                MelonLogger.Msg($"[AutoHeal] Chạy tiếp Tự Động (HP {hp}/{maxHp})");
-                Il2CppGoPet.Ui.Banner.bel("Đầy máu: chạy tiếp Tự Động");
+                MelonLogger.Msg($"[AutoHeal] Chạy tiếp Tự Động ({vitalsText})");
+                Il2CppGoPet.Ui.Banner.bel("Đã hồi đầy: chạy tiếp Tự Động");
             }
             catch (Exception e)
             {
@@ -223,6 +273,25 @@ namespace GoPetMod
                 _auto = __instance;
                 MelonLogger.Msg("[AutoHeal] auto captured");
             }
+        }
+
+        private static void LogRegen(int hp, int maxHp, float now)
+        {
+            var gain = hp - _prevHp;
+            if (_lastHpGainAt < 0f)
+            {
+                _regenStartHp = _prevHp;
+                _regenStartAt = now;
+                MelonLogger.Msg($"[Regen] +{gain} HP -> {hp}/{maxHp} (nghỉ: {_resting})");
+            }
+            else
+            {
+                var dt = now - _lastHpGainAt;
+                var total = now - _regenStartAt;
+                var avg = total > 0f ? (hp - _regenStartHp) / total : 0f;
+                MelonLogger.Msg($"[Regen] +{gain} HP sau {dt:0.00}s -> {hp}/{maxHp} | TB {avg:0.0} HP/s ({avg * 100f / maxHp:0.00}%/s) (nghỉ: {_resting})");
+            }
+            _lastHpGainAt = now;
         }
 
         // Server refused because we are still fighting: hide the popup it caused and back off.

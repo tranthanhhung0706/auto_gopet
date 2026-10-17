@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GoPetMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c08dcf2ec9d14d08f7ff0334e1a2e8ce21f80fe4")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c1fe24a7fa4cdd6e8cdfb73806aed35461959b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("GoPetMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GoPetMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

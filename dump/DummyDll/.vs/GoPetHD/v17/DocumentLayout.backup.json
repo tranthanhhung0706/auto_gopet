@@ -11,6 +11,10 @@
       "RelativeMoniker": "D:0:0:{D996F0E2-E877-47E4-A9B5-5B9B1A79964E}|GoPetMod\\GoPetMod.csproj|solutionrelative:gopetmod\\main.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D996F0E2-E877-47E4-A9B5-5B9B1A79964E}|GoPetMod\\GoPetMod.csproj|d:\\gopetunity\\gopethd (1)\\dump\\dummydll\\gopetmod\\autohealmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D996F0E2-E877-47E4-A9B5-5B9B1A79964E}|GoPetMod\\GoPetMod.csproj|solutionrelative:gopetmod\\autohealmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D996F0E2-E877-47E4-A9B5-5B9B1A79964E}|GoPetMod\\GoPetMod.csproj|d:\\gopetunity\\gopethd (1)\\dump\\dummydll\\gopetmod\\gopetmod.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
       "RelativeMoniker": "D:0:0:{D996F0E2-E877-47E4-A9B5-5B9B1A79964E}|GoPetMod\\GoPetMod.csproj|solutionrelative:gopetmod\\gopetmod.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
@@ -26,8 +30,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AutoHealMenu.cs",
+              "DocumentMoniker": "D:\\gopetUnity\\goPetHD (1)\\dump\\DummyDll\\GoPetMod\\AutoHealMenu.cs",
+              "RelativeDocumentMoniker": "GoPetMod\\AutoHealMenu.cs",
+              "ToolTip": "D:\\gopetUnity\\goPetHD (1)\\dump\\DummyDll\\GoPetMod\\AutoHealMenu.cs",
+              "RelativeToolTip": "GoPetMod\\AutoHealMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-16T15:44:12.334Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -43,7 +59,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "GoPetMod",
               "DocumentMoniker": "D:\\gopetUnity\\goPetHD (1)\\dump\\DummyDll\\GoPetMod\\GoPetMod.csproj",
               "RelativeDocumentMoniker": "GoPetMod\\GoPetMod.csproj",
@@ -54,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\gopetUnity\\goPetHD (1)\\dump\\DummyDll\\GoPetMod\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "GoPetMod\\Properties\\launchSettings.json",
@@ -72,9 +88,10 @@
               "RelativeDocumentMoniker": "GoPetMod\\Main.cs",
               "ToolTip": "D:\\gopetUnity\\goPetHD (1)\\dump\\DummyDll\\GoPetMod\\Main.cs",
               "RelativeToolTip": "GoPetMod\\Main.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAiwCUAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-16T09:51:23.921Z"
+              "WhenOpened": "2026-10-16T09:51:23.921Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
